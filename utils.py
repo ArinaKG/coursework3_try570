@@ -6,7 +6,7 @@ def get_posts_all(): #возвращает посты
 
 
 def get_posts_by_user(user_name): #возвращает посты определенного пользователя. Функция должна вызывать ошибку `ValueError` если такого пользователя нет и пустой список, если у пользователя нет постов.
-users_post = []
+    users_post = []
     if user_name in _index_user():
         for i in range(len(get_posts_all())):
             if get_posts_all()[i]["poster_name"] == user_name:
