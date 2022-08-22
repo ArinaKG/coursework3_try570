@@ -4,6 +4,7 @@ import logging
 
 from utils import get_posts_all, get_post_by_pk, get_comments_by_pk
 
+
 app = Flask(__name__)
 
 logging.basicConfig(filename='logs/api.log', level=logging.INFO)

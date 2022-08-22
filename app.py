@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 app.register_blueprint(main_blueprint)
 
-@app.errorhandler(404) git add
+@app.errorhandler(404)
 def page_not_found(e):
     return render_template('page404.html'), 404
 
