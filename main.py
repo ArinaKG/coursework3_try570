@@ -91,7 +91,10 @@ def api_get_posts_by_user(post_id):
     return jsonify(post_for_pk)
 
 
-if __name__ == '__main__':
-    app.run(debug=True)
+
+
+
+#if __name__ == '__main__':
+#    app.run(debug=True)
 
 #http://127.0.0.1:5000/posts/2

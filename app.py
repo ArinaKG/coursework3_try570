@@ -3,7 +3,7 @@ from operator import add
 
 from flask import Flask, render_template
 
-from main.main import main_blueprint
+from main import main_blueprint
 
 app = Flask(__name__)
 
