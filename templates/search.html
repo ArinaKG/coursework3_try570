@@ -28,26 +28,25 @@
       <form action="/static" class="search__form">
         <input type="search" class="search__input">
       </form>
-      <p class="search__results">Найдено постов: 11</p>
-    </div>
+      <p class="search__results">Найдено постов: {{len(posts)}}
     <section class="items">
       <div class="items__item item">
         <div class="item__top">
           <a href="/templates/user-feed.html" class="item__head">
             <div class="item__ava-wrap">
-              <img src="../static/img/ava1.png" alt="" class="item__ava" width="47">
+              <img src="{{post.poster_avatar}}" alt="" class="item__ava" width="47">
             </div>
             <span class="item__username">skypro.08</span>
           </a>
         </div>
-        <a href="/templates/post.html" class="item__post-link">
-          <img src="../static/img/post5.jpg" alt="" width="348" class="item__post-img">
+        <a href="/posts/{{post.pk}}" class="item__post-link">
+          <img src="{{post.pic}}" alt="" width="348" class="item__post-img">
         </a>
-        <p class="item__descr"><a href="/templates/tag.html" class="item__tag">#food</a> Текст описания коротки...</p>
+        <p class="item__descr"><a href="/templates/tag.html" class="item__tag">#food</a>{{post.content}}</p>
         <div class="item__post-info">
           <div class="item__counter">
             <img src="../static/img/eye.png" alt="" class="item__counter-icon" width="26">
-            <span class="item__counter-text">212</span>
+            <span class="item__counter-text">{{post.views_count}}</span>
           </div>
         </div>
         <div class="item__post-bottom">
