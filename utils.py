@@ -6,16 +6,17 @@ def get_posts_all(): #возвращает посты
 
 
 def get_posts_by_user(user_name): #возвращает посты определенного пользователя. Функция должна вызывать ошибку `ValueError` если такого пользователя нет и пустой список, если у пользователя нет постов.
-    users_post = []
-    if user_name in _index_user():
-        for i in range(len(get_posts_all())):
-            if get_posts_all()[i]["poster_name"] == user_name:
-                users_post.append(get_posts_all()[i])
-        return users_post
-    raise ValueError('User not found')
+    posts = get_posts_all()
+    users_posts = []
+    #if user_name in _index_user():
+    for i in range(len(posts)):
+        if posts[i]["poster_name"] == user_name:
+            users_posts.append(posts[i])
+    return users_posts
+ #   raise ValueError('User not found')
 
 def get_comments_by_post_id(post_id): #возвращает комментарии определенного поста. Функция должна вызывать ошибку `ValueError` если такого поста нет и пустой список, если у поста нет комментов.
-    file_with_comments = _open_comments()
+    file_with_comments = get_all_comments()
     comments = []
     for i in range(len(file_with_comments)):
         if file_with_comments[i]['post_id'] == post_id:
@@ -27,8 +28,7 @@ def search_for_posts(query): #возвращает список постов п�
     posts = []
     query = (str(query)).lower()
     for i in range(len(get_posts_all())):
-        get_posts_all()[i]["content"] = (str((get_posts_all()[i]["content"]))).lower()
-        if query in get_posts_all()[i]["content"]:
+        if query in get_posts_all()[i]["content"].lower():
             posts.append(get_posts_all()[i])
     return posts
 
@@ -39,11 +39,9 @@ def get_all_comments():
 
 def get_post_by_pk(pk): #возвращает один пост по его идентификатору
     temp = get_posts_all()
-    res = []
     for i in range(len(temp)):
         if pk == temp[i]['pk']:
-            res.append(temp[i])
-    return res
+            return temp[i]
 
 
 def get_comments_by_pk(pk): #возвращает все комментарии поста

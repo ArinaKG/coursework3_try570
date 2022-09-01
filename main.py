@@ -1,14 +1,14 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, Blueprint, jsonify, request
 
 import logging
 
-from utils import get_posts_all, get_post_by_pk, get_comments_by_pk
+from utils import *
 
 
 app = Flask(__name__)
 
-logging.basicConfig(filename='logs/api.log', level=logging.INFO)
-logger = logging.getLogger(__name__)
+#logging.basicConfig(filename='logs/api.log', level=logging.INFO)
+#logger = logging.getLogger(__name__)
 
 #делаем экземпляр класса блюпринт
 main_blueprint = Blueprint('main_blueprint', __name__, template_folder='templates')
@@ -20,9 +20,9 @@ def main_page():
     вьюшка блюпринт на главную страницу
     :return:
     """
-    posters = get_posts_all()
+    posts = get_posts_all()
 
-    return render_template('index.html', posters=posters)
+    return render_template('index.html', posts=posts)
 
 
 @main_blueprint.route('/posts/<int:postid>')
@@ -59,10 +59,10 @@ def page_get_post_by_pk(pk): #возвращает один пост по его
 
 @main_blueprint.route('/results/', methods=['POST', 'GET'])
 def page_search_results():
-    answer = request.values.get('query')
+    answer = request.args.get("s")
     post_results = search_for_posts(answer)
     len_post_results = len(post_results)
-    return render_template('search-results.html', post_results=post_results, len_post_results=len_post_results)
+    return render_template('search.html', post_results=post_results, len_post_results=len_post_results)
 
 
 @main_blueprint.route('/users/<username>')
