@@ -54,6 +54,7 @@ def get_comments_by_pk(pk): #возвращает все комментарии 
 
 
 #print(get_posts_all())
+
 #print(get_all_comments())
 #print(get_post_by_pk())
 #print(get_comments_by_pk(1))
