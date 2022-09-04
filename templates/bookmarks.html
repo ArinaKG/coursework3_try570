@@ -25,26 +25,26 @@
   </header>
   <main class="container">
       {% for post in posts %}
-    <section class="items">
-      <div class="items__item item">
-        <div class="item__top">
-          <a href="/templates/user-feed.html" class="item__head">
-            <div class="item__ava-wrap">
-              <img src="{{post.poster_avatar}}" alt="" class="item__ava" width="47">
+        <section class="items">
+        <div class="items__item item">
+            <div class="item__top">
+            <a href="/templates/user-feed.html" class="item__head">
+                <div class="item__ava-wrap">
+                <img src="{{post.poster_avatar}}" alt="" class="item__ava" width="47">
+                </div>
+                <span class="item__username">skypro.08</span>
+            </a>
+            <a href="#" class="item__delete">Удалить</a>
             </div>
-            <span class="item__username">skypro.08</span>
-          </a>
-          <a href="#" class="item__delete">Удалить</a>
+            <a href="/templates/post.html" class="item__post-link">
+            <img src="/" alt="" width="348" class="item__post-img">
+            </a>
+            <p class="item__descr"> {{post.content}} <a href="/templates/post.html" class="item__btn-more">Еще</a></p>
+            <div class="item__post-info">
+            <div class="item__counter">
+                <img src="../static/img/eye.png" alt="" class="item__counter-icon" width="26">
+                <span class="item__counter-text">{{post_pk.views_count}}</span>
         </div>
-        <a href="/templates/post.html" class="item__post-link">
-          <img src="../static/img/post5.jpg" alt="" width="348" class="item__post-img">
-        </a>
-        <p class="item__descr"> {{post.content}} <a href="/templates/post.html" class="item__btn-more">Еще</a></p>
-        <div class="item__post-info">
-          <div class="item__counter">
-            <img src="../static/img/eye.png" alt="" class="item__counter-icon" width="26">
-            <span class="item__counter-text">{{post_pk.views_count}}</span>
-          </div>
         </div>
         <div class="item__post-bottom">
           <a href="/templates/post.html" class="item__btn-more">Подробнее</a>
