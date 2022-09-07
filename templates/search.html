@@ -28,7 +28,7 @@
       <form action="/static" class="search__form">
         <input type="search" class="search__input">
       </form>
-      <p class="search__results">Найдено постов: {{len(posts)}}
+      <p class="search__results">Найдено постов: {{len_post_results}}</p>
     <section class="items">
       <div class="items__item item">
         <div class="item__top">
@@ -39,7 +39,7 @@
             <span class="item__username">skypro.08</span>
           </a>
         </div>
-        <a href="/posts/{{post.pk}}" class="item__post-link">
+        <a href="/posts/{{post_for_username}}" class="item__post-link">
           <img src="{{post.pic}}" alt="" width="348" class="item__post-img">
         </a>
         <p class="item__descr"><a href="/templates/tag.html" class="item__tag">#food</a>{{post.content}}</p>
