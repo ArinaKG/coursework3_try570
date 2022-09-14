@@ -30,7 +30,7 @@ def post_page(postid):
     post_pk = get_post_by_pk(postid)
     post_comms = get_comments_by_post_id(postid)
     com_len = len(post_comms)
-    return render_template('post.html', post_pk=post_pk, post_comms=post_comms, com_len=com_len)
+    return render_template('post.html', post_pk=post.pk, post_comms=post_comms, com_len=com_len)
 
 
 @app.route('/')
